@@ -1,0 +1,713 @@
+/* Styles will be added in subsequent steps */
+:root {
+    --light-blue: #01357F;
+    --dark-blue: #14386b;
+    --light-yellow: #F6D39A;
+    --dark-yellow: #BE8540;
+    --text-dark: #333333; /* A dark grey for general text */
+    --text-light: #ffffff; /* White for text on dark backgrounds */
+    --background-light: #ffffff; /* Light background for sections */
+    --background-dark: var(--dark-blue); /* Dark background for sections like footer/header */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* How it Works section styling */
+#how-it-works {
+    padding: 60px 0;
+    background-color: var(--background-light); /* Alternating background color */
+}
+
+#how-it-works .container {
+    text-align: center;
+}
+
+#how-it-works h2 {
+    font-size: 2.2em;
+    margin-bottom: 50px; /* More space before steps */
+    color: var(--dark-blue);
+}
+
+.steps-container {
+    display: flex;
+    flex-direction: column; /* Stack steps vertically */
+    gap: 25px; /* Space between step items */
+    max-width: 800px; /* Constrain width of the steps area */
+    margin: 0 auto; /* Center the steps area */
+    text-align: left; /* Align text within each step to the left */
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease;
+}
+
+.step-item:hover {
+    transform: translateY(-3px);
+}
+
+.step-number {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--light-blue);
+    margin-right: 25px;
+    min-width: 40px; /* Ensure number has some space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-content h3 {
+    font-size: 1.3em;
+    color: var(--dark-blue);
+    margin-top: 0; /* Remove top margin if number is aligned top */
+    margin-bottom: 8px;
+}
+
+.step-content p {
+    font-size: 0.95em;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 0; /* Remove bottom margin from p if it's the last element */
+}
+
+.step-content p a { /* Style for the email link */
+    font-weight: 600; /* Make email link slightly bolder */
+}
+
+/* Pricing section styling */
+#pricing {
+    padding: 60px 0;
+    background-color: #f9f9f9; /* Consistent light background */
+}
+
+#pricing .container {
+    text-align: center;
+}
+
+#pricing h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: var(--dark-blue);
+}
+
+#pricing .section-intro {
+    margin-bottom: 40px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.pricing-tier {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column; /* Ensure footer is at bottom */
+    padding: 30px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-tier:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.pricing-tier.recommended {
+    border-top: 5px solid var(--light-yellow); /* Highlight recommended tier */
+    position: relative; /* For badge positioning */
+}
+
+.reco-badge {
+    position: absolute;
+    top: -15px; /* Adjust to sit nicely on the border */
+    right: 20px;
+    background-color: var(--light-yellow);
+    color: var(--dark-blue);
+    padding: 5px 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.tier-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tier-header h3 {
+    font-size: 1.6em;
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--light-blue);
+}
+
+.price-note {
+    font-size: 0.6em;
+    font-weight: normal;
+    color: #777;
+}
+
+.tier-body {
+    flex-grow: 1; /* Allow body to take up space so footer aligns */
+}
+
+.tier-body p:first-of-type { /* The main description paragraph */
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.tier-body ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.tier-body ul li {
+    font-size: 0.9em;
+    color: #444;
+    margin-bottom: 10px;
+    padding-left: 20px; /* Space for custom bullet */
+    position: relative;
+}
+
+.tier-body ul li::before { /* Custom bullet */
+    content: '\2713'; /* Checkmark icon */
+    color: var(--light-blue);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.discount-text {
+    color: var(--dark-yellow);
+    font-weight: 600;
+}
+
+.tier-footer {
+    margin-top: auto; /* Push footer to bottom */
+    text-align: center;
+}
+
+.cta-button-outline { /* For non-recommended tiers */
+    background-color: transparent;
+    color: var(--light-blue);
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    border: 2px solid var(--light-blue);
+}
+
+.cta-button-outline:hover {
+    background-color: var(--light-blue);
+    color: var(--text-light);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.savings-highlight {
+    background-color: var(--dark-blue);
+    color: var(--text-light);
+    padding: 30px;
+    border-radius: 8px;
+    margin: 50px auto;
+    max-width: 700px;
+    text-align: center;
+}
+
+.savings-highlight h4 {
+    font-size: 1.8em;
+    color: var(--light-yellow); /* Highlight color */
+    margin-bottom: 10px;
+}
+
+.savings-highlight p {
+    font-size: 1.1em;
+    margin-bottom: 0;
+}
+
+.savings-highlight strong {
+    font-size: 1.2em;
+}
+
+.discounts-info {
+    margin-top: 40px;
+    padding: 25px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.discounts-info h3 {
+    font-size: 1.5em;
+    color: var(--dark-blue);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.discounts-info ul {
+    list-style: disc;
+    padding-left: 25px;
+    margin-top: 10px;
+}
+.discounts-info ul li {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+/* Conclusion/CTA section styling */
+#conclusion-cta {
+    padding: 60px 0;
+    background-color: var(--dark-blue); /* Using dark blue for a strong CTA background */
+    color: var(--text-light); /* Light text on dark background */
+    text-align: center;
+}
+
+#conclusion-cta h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: var(--text-light); /* Override default heading color */
+}
+
+#conclusion-cta .section-intro {
+    color: #e0e0e0; /* Slightly dimmer white for paragraphs */
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+}
+
+#conclusion-cta .section-intro:last-of-type { /* Last paragraph before contact info */
+    margin-bottom: 40px;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.email-link {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--light-yellow); /* Highlight email link */
+    text-decoration: none;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent; /* For hover effect */
+    transition: border-bottom-color 0.3s ease;
+}
+
+.email-link:hover {
+    border-bottom-color: var(--light-yellow); /* Underline on hover */
+    text-decoration: none;
+}
+
+/* Re-using .cta-button style from hero section for consistency */
+#conclusion-cta .cta-button { 
+    /* Styles are already defined, ensure it uses light-yellow background
+       and dark-blue text as per the original .cta-button definition.
+       If any overrides are needed for this specific section, they can be added here.
+       For example, if we wanted a different color scheme for this specific CTA:
+    */
+    /* background-color: var(--light-yellow); */
+    /* color: var(--dark-blue); */
+    margin-top: 20px; /* Add some space above the button */
+}
+
+/* n8n-benefits section styling */
+#n8n-benefits {
+    padding: 60px 0;
+    background-color: #f9f9f9; /* Slightly different background for visual separation */
+}
+
+#n8n-benefits .container {
+    text-align: center;
+}
+
+#n8n-benefits h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: var(--dark-blue);
+}
+
+/* Reusing .benefits-grid and .benefit-item styling for .features-grid and .feature-item */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: left;
+    margin-top: 50px;
+}
+
+.feature-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.feature-icon { /* Adapting .benefit-icon styling */
+    font-size: 2.5em;
+    color: var(--dark-blue); /* Icon color */
+    margin-bottom: 15px;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: var(--light-yellow); 
+}
+
+.feature-item h3 {
+    font-size: 1.4em;
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 0.95em;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Security Highlight Box */
+.security-highlight {
+    margin-top: 60px;
+    padding: 30px;
+    background-color: var(--dark-blue); /* Dark blue background */
+    color: var(--text-light); /* Light text */
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.security-icon {
+    font-size: 2.8em; /* Larger icon for security */
+    color: var(--light-yellow); /* Yellow icon on dark blue background */
+    margin-bottom: 15px;
+}
+
+.security-highlight h4 {
+    font-size: 1.6em;
+    color: var(--text-light); /* Ensure heading is light */
+    margin-bottom: 10px;
+}
+
+.security-highlight p {
+    font-size: 1em;
+    max-width: 600px;
+    margin: 0 auto; /* Center the paragraph */
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700; /* Bolder headings */
+    color: var(--dark-blue); /* Default heading color */
+}
+
+a {
+    color: var(--light-blue);
+    text-decoration: none; /* Remove default underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover for accessibility */
+}
+
+/* Utility class for main content container within sections if needed */
+.container {
+    width: 90%;
+    max-width: 1100px; /* Common max-width for content */
+    margin: 0 auto; /* Center the container */
+    padding: 20px 0; /* Padding for top/bottom of container content */
+}
+
+header {
+    background-color: var(--dark-blue); /* Dark blue background */
+    padding: 15px 0;
+    color: var(--text-light); /* Light text for header content */
+    position: sticky; /* Sticky header */
+    top: 0;
+    z-index: 1000; /* Ensure header is above other content */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between; /* Space between logo and nav */
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Adjust as needed based on logo aspect ratio */
+    width: auto; /* Maintain aspect ratio */
+}
+
+nav ul {
+    list-style: none; /* Remove default bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px; /* Space between nav items */
+}
+
+nav ul li a {
+    color: var(--text-light); /* Light color for nav links */
+    text-decoration: none;
+    font-weight: 500; /* Slightly bolder than normal text */
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active { /* Style for active link (can be set with JS later) */
+    color: var(--light-yellow); /* Highlight color on hover/active */
+    /* border-bottom: 2px solid var(--light-yellow); Optional: underline effect */
+}
+
+#hero {
+    background: linear-gradient(135deg, var(--dark-blue), var(--light-blue)); /* Gradient background */
+    color: var(--text-light);
+    padding: 80px 0; /* Increased padding for impact */
+    text-align: center;
+    position: relative; /* For potential pseudo-elements or animations */
+    overflow: hidden; /* If using animations that might go outside bounds */
+}
+
+#hero .container {
+    position: relative; /* For z-indexing if needed */
+    z-index: 1;
+}
+
+#hero h1 {
+    font-size: 2.8em; /* Larger font for hero headline */
+    color: var(--text-light); /* Override default heading color */
+    margin-bottom: 30px;
+    line-height: 1.3;
+    /* Optional: Text shadow for better readability on gradient */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2); 
+}
+
+#hero p {
+    font-size: 1.15em;
+    margin-bottom: 40px;
+    max-width: 750px; /* Constrain width of paragraph */
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.cta-button {
+    background-color: var(--light-yellow);
+    color: var(--dark-blue); /* Dark text on light yellow button */
+    padding: 15px 35px;
+    border-radius: 50px; /* Rounded button for modern feel */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block; /* To apply padding and margin properly */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.cta-button:hover {
+    background-color: var(--dark-yellow);
+    color: var(--text-light); /* Light text on dark yellow hover */
+    transform: translateY(-3px); /* Slight lift on hover */
+    text-decoration: none;
+}
+
+.hero-sub-highlight {
+    margin-top: 50px;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background for highlight */
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-sub-highlight p {
+    font-size: 1.1em;
+    margin-bottom: 15px; /* Adjust spacing within this box */
+    color: var(--text-light);
+}
+
+.hero-sub-highlight p:last-child {
+    margin-bottom: 0;
+}
+
+.hero-sub-highlight strong {
+    color: var(--light-yellow); /* Highlight key numbers/phrases */
+}
+
+/* Entry Animation for Hero Content */
+#hero .container > * { /* Apply to direct children of container for staggered effect */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Stagger animations for h1, p, button, sub-highlight */
+#hero h1 { animation-delay: 0.2s; }
+#hero p { animation-delay: 0.4s; }
+#hero .cta-button { animation-delay: 0.6s; }
+#hero .hero-sub-highlight { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Basic responsiveness for smaller screens */
+@media (max-width: 768px) {
+    #hero {
+        padding: 60px 0;
+    }
+    #hero h1 {
+        font-size: 2.2em; /* Adjust font size for smaller screens */
+    }
+    #hero p {
+        font-size: 1em;
+    }
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+    .hero-sub-highlight {
+        padding: 20px;
+    }
+    header .container {
+        flex-direction: column; /* Stack logo and nav */
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items */
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Adjust spacing for vertical layout */
+    }
+}
+
+#why-externalize {
+    padding: 60px 0;
+    background-color: var(--background-light); 
+}
+
+#why-externalize .container {
+    text-align: center; 
+}
+
+#why-externalize h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: var(--dark-blue);
+}
+
+.section-intro { 
+    font-size: 1.1em;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 40px auto; 
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    text-align: left; 
+    margin-top: 50px;
+}
+
+.benefit-item {
+    background-color: #fff; 
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.benefit-icon {
+    font-size: 2.5em; 
+    color: var(--dark-blue); /* Changed to dark-blue for better contrast with light-yellow bg */
+    margin-bottom: 20px; /* Increased margin a bit */
+    display: inline-block;
+    width: 70px; /* Slightly larger icon background */
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: var(--light-yellow); 
+}
+
+.benefit-item h3 {
+    font-size: 1.4em;
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+}
+
+.benefit-item p {
+    font-size: 0.95em;
+    color: #444;
+    line-height: 1.6;
+}
